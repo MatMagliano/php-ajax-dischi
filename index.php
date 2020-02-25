@@ -15,6 +15,7 @@
 </head>
 <body>
   <main>
+    
     <div class="wrapper">
       <?php foreach ($db as $faq) { ?>
           <img src="<?php echo $faq['poster']; ?>" alt="">
