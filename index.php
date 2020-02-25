@@ -1,8 +1,7 @@
 <?php
+  include 'server.php';
 
-
-
- ?>
+?>
 
 
 
@@ -15,6 +14,17 @@
   <title>Document</title>
 </head>
 <body>
+  <main>
+    <div class="wrapper">
+      <?php foreach ($db as $faq) { ?>
+          <img src="<?php echo $faq['poster']; ?>" alt="">
+          <h2><?php echo $faq['title']; ?></h2>
+          <p><?php echo $faq['author']; ?></p>
+          <p><?php echo $faq['year']; ?></p>
 
+
+        <?php } ?>
+    </div>
+  </main>
 </body>
 </html>
