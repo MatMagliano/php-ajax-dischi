@@ -40,7 +40,7 @@ function searchAlbum(url, input) {
       var source = $("#albums-template").html();
       var template = Handlebars.compile(source);
       if (input == 0) {
-        $('.wrapper').empty();
+        printAlbum(albums);
         callAjaxAll();
       } else {
         for (var i = 0; i < albums.length; i++) {
