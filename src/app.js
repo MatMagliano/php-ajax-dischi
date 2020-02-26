@@ -2,9 +2,15 @@ const $ = require("jquery");
 const Handlebars = require("handlebars");
 
 $(document).ready(function() {
-  // alert('ciao');
+  var url = 'http://localhost:8888/php-ajax-dischi/server.php'
+  callAjaxAll(url)
+});
+
+
+//---------- FUNNCTION -------------
+function callAjaxAll(url) {
   $.ajax({
-    'url':'http://localhost:8888/php-ajax-dischi/server.php',
+    'url':url,
     'method': 'GET',
     'success': function(data) {
       var albums = data;
@@ -14,20 +20,16 @@ $(document).ready(function() {
       alert('errore');
     }
 
-  }); //FINE AJAX
-});
+  });
+} // FINE CALL AJAX
 
-
-//---------- FUNNCTION -------------
-
+// ----------------
 function printAlbum(cds) {
+  var source = $("#albums-template").html();
+  var template = Handlebars.compile(source);
   for (var i = 0; i < cds.length; i++) {
     var cd = cds[i];
-    console.log(cd);
-    var source = $("#albums-template").html();
-    var template = Handlebars.compile(source);
     var html = template(cd);
-
     $('.wrapper').append(html);
   }
-}
+} // FINE PRINT ALBUM
