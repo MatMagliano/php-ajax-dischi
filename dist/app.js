@@ -15820,6 +15820,11 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 $(document).ready(function () {
   var url = 'http://localhost:8888/php-ajax-dischi/server.php';
   callAjaxAll(url);
+  $(".search-input").keyup(function () {
+    $('.wrapper').empty();
+    var inputSearch = $(this).val().toLowerCase();
+    searchAlbum(url, inputSearch);
+  });
 }); //---------- FUNNCTION -------------
 
 function callAjaxAll(url) {
@@ -15829,6 +15834,37 @@ function callAjaxAll(url) {
     'success': function success(data) {
       var albums = data;
       printAlbum(albums);
+    },
+    'error': function error(richiesta, stato, errori) {
+      alert('errore');
+    }
+  });
+} // FINE CALL AJAX
+// ----------------
+
+
+function searchAlbum(url, input) {
+  $.ajax({
+    'url': url,
+    'method': 'get',
+    'success': function success(data) {
+      var albums = data;
+      var source = $("#albums-template").html();
+      var template = Handlebars.compile(source);
+
+      if (input == 0) {
+        $('.wrapper').empty();
+        callAjaxAll();
+      } else {
+        for (var i = 0; i < albums.length; i++) {
+          var author = albums[i].author.toLowerCase().replace('.', '');
+
+          if (author.includes(input)) {
+            var html = template(albums[i]);
+            $('.wrapper').append(html);
+          }
+        }
+      }
     },
     'error': function error(richiesta, stato, errori) {
       alert('errore');

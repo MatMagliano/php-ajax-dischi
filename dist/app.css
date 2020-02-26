@@ -42,11 +42,57 @@ header .nav {
   height: 100%;
   margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 header .nav img {
   width: 50px;
+}
+
+header .nav .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #2d2d2d;
+  border-radius: 50px;
+}
+
+header .nav .search i {
+  margin-right: 15px;
+  color: #fff;
+}
+
+header .nav .search .search-input {
+  background-color: #2d2d2d;
+  border: none;
+  color: #fff;
+  font-size: 1em;
+}
+
+header .nav .search .search-input::-webkit-input-placeholder {
+  color: #d9d9d9;
+}
+
+header .nav .search .search-input::-moz-placeholder {
+  color: #d9d9d9;
+}
+
+header .nav .search .search-input:-ms-input-placeholder {
+  color: #d9d9d9;
+}
+
+header .nav .search .search-input::-ms-input-placeholder {
+  color: #d9d9d9;
+}
+
+header .nav .search .search-input::placeholder {
+  color: #d9d9d9;
+}
+
+header .nav .search .search-input:focus {
+  outline: none;
 }
 
 main {
