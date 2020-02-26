@@ -25,6 +25,7 @@
     <div class="wrapper">
         <?php foreach ($db as $album) { ?>
           <div class="album">
+            
             <img src="<?php echo $album['poster']; ?>" alt="">
             <h4><?php echo $album['title']; ?></h4>
             <p><?php echo $album['author']; ?></p>
