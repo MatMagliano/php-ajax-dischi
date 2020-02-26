@@ -15823,13 +15823,25 @@ $(document).ready(function () {
     'url': 'http://localhost:8888/php-ajax-dischi/server.php',
     'method': 'GET',
     'success': function success(data) {
-      console.log(data.response);
+      var albums = data;
+      printAlbum(albums);
     },
     'error': function error(richiesta, stato, errori) {
       alert('errore');
     }
   }); //FINE AJAX
-});
+}); //---------- FUNNCTION -------------
+
+function printAlbum(cds) {
+  for (var i = 0; i < cds.length; i++) {
+    var cd = cds[i];
+    console.log(cd);
+    var source = $("#albums-template").html();
+    var template = Handlebars.compile(source);
+    var html = template(cd);
+    $('.wrapper').append(html);
+  }
+}
 
 /***/ }),
 

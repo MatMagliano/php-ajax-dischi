@@ -20,7 +20,7 @@
 
 
   <!-- TEMPLATE -->
-  <script id="entry-template" type="text/x-handlebars-template">
+  <script id="albums-template" type="text/x-handlebars-template">
     <div class="album">
       <img src="{{poster}}" alt="">
       <h4>{{title}}</h4>
