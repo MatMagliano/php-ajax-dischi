@@ -13,6 +13,11 @@
       <img src="img/logo-small copia.svg" alt="">
     </div>
   </header>
+
+
+
+
+  
   <script src="src/app.js" charset="utf-8"></script>
 </body>
 </html>
